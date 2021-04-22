@@ -19,10 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
     path: 'startupslides',
     loadChildren: () => import('./startupslides/startupslides.module').then( m => m.StartupslidesPageModule)
   },
@@ -41,6 +37,10 @@ const routes: Routes = [
   {
     path: 'journals',
     loadChildren: () => import('./journals/journals.module').then( m => m.JournalsPageModule)
+  },
+  {
+    path: 'profilepage',
+    loadChildren: () => import('./profilepage/profilepage.module').then( m => m.ProfilepagePageModule)
   },
 ];
 @NgModule({
