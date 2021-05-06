@@ -42,6 +42,18 @@ const routes: Routes = [
     path: 'profilepage',
     loadChildren: () => import('./profilepage/profilepage.module').then( m => m.ProfilepagePageModule)
   },
+  {
+    path: 'maltaislandpage',
+    loadChildren: () => import('./maltaislandpage/maltaislandpage.module').then( m => m.MaltaislandpagePageModule)
+  },
+  {
+    path: 'saved',
+    loadChildren: () => import('./saved/saved.module').then( m => m.SavedPageModule)
+  },
+  {
+    path: 'gallery',
+    loadChildren: () => import('./gallery/gallery.module').then( m => m.GalleryPageModule)
+  },
 ];
 @NgModule({
   imports: [

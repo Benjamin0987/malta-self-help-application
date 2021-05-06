@@ -1,7 +1,26 @@
 ion-slides {
     height: 100%;
+    background-color: #D1E7ED;
+    
 
     ion-slide {
     flex-direction: column;
+    }
+
+    ion-icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+    
+    ion-button {
+        font-size: 22px
     }
 }

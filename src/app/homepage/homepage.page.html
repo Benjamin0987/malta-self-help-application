@@ -1,17 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon name="search-outline"></ion-icon>
+    <!-- This is where the problem was - icons need to go inside buttons! -->
+    <ion-buttons slot="start">
+      <!-- Color: Dark will make the icon dark on light mode, and light on dark mode -->
+      <ion-button color="dark">
+        <ion-icon class="search-button" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Malta Info Guide</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <h3>Start by creating your new journey and experience new things!</h3>
-  <ion-icon name="arrow-down-outline"></ion-icon>
-
-  <ion-card>  
-    <ion-card-content>
-      <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-card-content>
-  </ion-card>
+  <div class="container">
+    <ion-icon color="medium" class="arrow" name="arrow-down-outline"></ion-icon>
+    <ion-button color="medium" class="journalbutton" routerLink="/tabs/journaldiary">
+      <ion-icon class="circleplus" name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </div>  
 </ion-content>

@@ -1,16 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Malta Info Guide</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon routerLink="/tabs/categories" name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  
-  <div id="user-header" class="ion-padding">
-  <h3>Account Login</h3>
-  </div>
+  <h3>Login</h3>
   <ion-list>
-    <!-- Email -->
+    <!--Email -->
     <ion-item>
       <ion-label position="floating">
         Email
@@ -19,7 +22,7 @@
       <ion-input clearInput></ion-input>
     </ion-item>
 
-    <!-- Email -->
+    <!-- Password -->
     <ion-item>
       <ion-label position="floating">
         Password
@@ -28,8 +31,8 @@
       <ion-input clearInput></ion-input>
     </ion-item>
     <ion-button>Login</ion-button>
-    <ion-text routerLink="/tabs/createaccount">Click here to create an account</ion-text>
+    
   </ion-list>
-  
-
+    <p routerLink="/tabs/createaccount">Click here to create an account</p>
+    <p routerLink="/tabs/profilepage">Click here to see profile</p>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumService } from '../services/album.service';
 
 @Component({
   selector: 'app-journaldiary',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournaldiaryPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private albumService: AlbumService
+  ) { }
 
   ngOnInit() {
   }
 
+  takePhoto()
+  {
+    this.albumService.takePhoto();
+  }
 }

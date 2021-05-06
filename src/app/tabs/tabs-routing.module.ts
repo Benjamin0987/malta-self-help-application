@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'saved',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('../saved/saved.module').then(m => m.SavedPageModule)
       },
       {
         path: 'journals',
@@ -42,6 +42,14 @@ const routes: Routes = [
       {
         path: 'profilepage',
         loadChildren: () => import('../profilepage/profilepage.module').then(m => m.ProfilepagePageModule)
+      },
+      {
+        path: 'maltaislandpage',
+        loadChildren: () => import('../maltaislandpage/maltaislandpage.module').then(m => m.MaltaislandpagePageModule)
+      },
+      {
+        path: 'saved',
+        loadChildren: () => import('../saved/saved.module').then(m => m.SavedPageModule)
       },
       {
         path: '',
