@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController, ModalController, ViewWillLeave } from '@ionic/angular';
 import { GalleryPage } from '../gallery/gallery.page';
 import { AlbumService } from '../services/album.service';
@@ -23,7 +24,8 @@ export class JournaldiaryPage implements OnInit {
     private modalCtrl: ModalController,
     private albumService: AlbumService,
     private storageService: StorageService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -127,11 +129,32 @@ async openGallery3()
     this.storageService.set('profilePicture3', this.journeyImg3);
 });
 
-modal.present();
+  modal.present();
 }
 
+async quit()
+  {
+    // This code waits (await) for the alert to be
+    // created before moving on.
+    const alert = await this.alertCtrl.create({
+      header: "Save Progress",
+      message: "Would you like to save your Journey?",
+      buttons: [
+        {
+          text: "No",
+          role: 'cancel'
+        },
+        {
+          text: "Yes",
+          handler: () => {
+            this.router.navigateByUrl('tabs/journals', { replaceUrl: true });
+          }
+        }
+      ]
+    });
+    
+    alert.present();
+  }
 
-ionViewWillLeave() {
-  console.log('ionViewWillLeave event fired')
 }
-}
+

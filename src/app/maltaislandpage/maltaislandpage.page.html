@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/categories"></ion-back-button>
     </ion-buttons>
-    <ion-title>Malta Island</ion-title>
+    <ion-title>Mdina Malta</ion-title>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="bookmark" slot="icon-only"></ion-icon>
@@ -13,43 +13,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>  
-    <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
-  </ion-card>
-  <h3>The Island Of Malta</h3>
-  <IonRow>
-    <IonCol size="4"><ion-icon name="heart"></ion-icon></IonCol>
-    <IonCol size="4"><ion-icon name="globe"></ion-icon></IonCol>
-    <IonCol size="4"><ion-icon name="share-social"></ion-icon></IonCol>
-  </IonRow>
-  <ion-list lines="full"><ion-item></ion-item></ion-list>
-  <ion-list lines="full">
-    <ion-item>
-      <ion-label>
-        <ion-icon name="heart"></ion-icon>
-        <ion-icon name="globe"></ion-icon>
-        <ion-icon name="share-social"></ion-icon>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-img src="assets/malta-island.jpg"></ion-img>
+  <h2>Island Of Malta</h2>
+  <h5>The Best Island in Europe</h5>
+  <hr>
+  <ion-row class="icons">
+    <ion-icon name="heart"></ion-icon>
+    <a href="https://www.maltainfoguide.com/island-of-malta.html"><ion-icon name="globe"></ion-icon></a>
+    <ion-icon name="share-social"></ion-icon>
+  </ion-row>
+<hr>
+<div class="ion-padding">
   <ion-text>
     <p>The island of Malta is known as an open-air museum with numerous sites dating back from 6500 since man came to the Island till recent. You can still witness this incredible heritage through tours, or walk around hop on hop off.</p>
     <p>What makes it unique is that so much of the past is visible today. Delve into the island's prehistory, retrace the footsteps of St. Paul or see where the Knights of St. John fought their most famous battles of 1565.</p>
     <p>Malta Island has so many opportunities and so much to offer. Malta retains spectacular backgrounds, with a surprising amount of cultural heritage still visible today. It is being well preserved till today in order to be enjoyed by all locals and visitors.</p>
     <p>It is the largest of all the Maltese's archipelago located in the centre of the Mediterranean Sea between Sicily and Africa. The other islands are Gozo and Comino much smaller in size with their own charm and characteristics.</p>
   </ion-text>
-
-    <ion-item href="/tabs/gozoislandpage" class="ion-activated">
-      <ion-card-content>
-        <ion-card-title>Gozo Island</ion-card-title>
-      </ion-card-content>
-    </ion-item>
-    <ion-item href="/tabs/mdinamaltapage" class="ion-activated">
-      <ion-card-content>
-        <ion-card-title>Mdina Malta</ion-card-title>
-      </ion-card-content>
-    </ion-item>
+  <h3>Nearby Locations You Can Visit</h3>
+    <ion-button fill="clear" routerLink="/tabs/rabatmaltapage">Rabat Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+    <ion-button fill="clear">Roman Villa <ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+    <ion-button fill="clear">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+</div>
 </ion-content>
