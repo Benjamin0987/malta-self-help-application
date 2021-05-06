@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ViewWillLeave } from '@ionic/angular';
+import { AlertController, ModalController, ViewWillLeave } from '@ionic/angular';
 import { GalleryPage } from '../gallery/gallery.page';
 import { AlbumService } from '../services/album.service';
 import { StorageService } from '../services/storage.service';
@@ -15,19 +15,26 @@ export class JournaldiaryPage implements OnInit {
   public journeyImg1: string = null;
   public journeyImg2: string = null;
   public journeyImg3: string = null;
+  public journeyTitle: string = " ";
+  public journeyDescr: string = " ";
 
 
   constructor(
     private modalCtrl: ModalController,
     private albumService: AlbumService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private alertCtrl: AlertController
   ) { }
 
   async ngOnInit() {
     this.journeyImg1 = await this.storageService.get('profilePicture');
     this.journeyImg2 = await this.storageService.get('profilePicture2');
     this.journeyImg3 = await this.storageService.get('profilePicture3');
+    this.journeyTitle = await this.storageService.get('journeyTitle');
+    this.journeyDescr = await this.storageService.get('journeyDescr');
   }
+
+
 
   takePhoto()
   {
