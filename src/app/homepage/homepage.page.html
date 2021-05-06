@@ -1,13 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <!-- This is where the problem was - icons need to go inside buttons! -->
+
     <ion-buttons slot="start">
-      <!-- Color: Dark will make the icon dark on light mode, and light on dark mode -->
       <ion-button color="dark">
-        <ion-icon class="search-button" name="search-outline"></ion-icon>
+        <ion-icon class="headericons" name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
     <ion-title>Malta Info Guide</ion-title>
+
+    <ion-buttons slot="end" (click)="openGallery()"> 
+      <ion-button color="dark"><ion-icon  class="headericons" name="albums-outline"></ion-icon></ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

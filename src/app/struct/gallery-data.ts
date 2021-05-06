@@ -100,5 +100,9 @@ export const GALLERY: Photo[] = [
     {
         filePath: "assets/camera-roll/20180710_165443.jpg",
         album: "Streets"
+    },
+    {
+        filePath: "assets/camera-roll/photo1.jpg",
+        album: "Streets"
     }
 ];

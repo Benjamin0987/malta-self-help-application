@@ -24,8 +24,8 @@ const routes: Routes = [
         loadChildren: () => import('../journals/journals.module').then(m => m.JournalsPageModule)
       },
       {
-        path: 'login',
-        loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
+        path: 'profile',
+        loadChildren: () => import('../profilepage/profilepage.module').then(m => m.ProfilepagePageModule)
       },
       {
         path: 'createaccount',
@@ -38,10 +38,6 @@ const routes: Routes = [
       {
         path: 'journaldiary',
         loadChildren: () => import('../journaldiary/journaldiary.module').then(m => m.JournaldiaryPageModule)
-      },
-      {
-        path: 'profilepage',
-        loadChildren: () => import('../profilepage/profilepage.module').then(m => m.ProfilepagePageModule)
       },
       {
         path: 'maltaislandpage',

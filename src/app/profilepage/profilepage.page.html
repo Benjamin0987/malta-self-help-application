@@ -1,44 +1,76 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button>
-        <ion-icon routerLink="/tabs/categories" name="arrow-back" slot="icon-only"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
+
     <ion-title>Profile</ion-title>
+
+    <ion-buttons slot="end" routerLink="/gallery">
+      <ion-button color="dark"><ion-icon class="headericons" name="albums-outline"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="user-header" class="ion-padding">
+    
     <!-- User Avatar (Profile Picture) -->
-    <ion-avatar>
-      <img src="assets/shapes.svg" alt="">
+    <ion-avatar (click)="openGallery()">
+      <img src="{{ avatarSrc || 'assets/shapes.svg' }}" alt="">
     </ion-avatar>
+
     <!-- Username -->
     <div class="ion-text-center">
-      <h3>{{ name }} {{ surname }}</h3>
+      <h3 *ngIf="name || surname">{{ name }} {{ surname }}</h3>
+      <h3 *ngIf="!name && !surname">Guest User</h3>
     </div>
   </div>
 
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input readonly value="{{ quizService.bestScore | percent }}"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Surname</ion-label>
-    <ion-input readonly value="{{ quizService.bestScore | percent }}"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input readonly value="{{ quizService.bestScore | percent }}"></ion-input>
-  </ion-item>
-</ion-content>
+  <ion-list>
 
-<ion-footer>
-  <ion-button
-    class="ion-no-margin"
-    expand="full">Save Details
-  </ion-button>
-  
-</ion-footer>
+    <!-- Name Input -->
+    <ion-item>
+      <ion-label position="floating">
+        Name
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-input clearInput [(ngModel)]="name" (ionChange)="onChange('name', $event)"></ion-input>
+    </ion-item>
+    <!-- End Name Input -->
+
+    <!-- Surname Input -->
+    <ion-item>
+      <ion-label position="floating">
+        Surname
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-input clearInput [(ngModel)]="surname" (ionChange)="onChange('surname', $event)"></ion-input>
+    </ion-item>
+    <!-- End Surname Input -->
+
+    <!-- Email Input -->
+    <ion-item>
+      <ion-label position="floating">
+        Email
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-input clearInput [(ngModel)]="email" (ionChange)="onChange('email', $event)"></ion-input>
+    </ion-item>
+    <!-- End Email Input -->
+
+    <!-- Country Input -->
+    <ion-item>
+      <ion-label position="floating">
+        Country
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-input clearInput [(ngModel)]="country" (ionChange)="onChange('country', $event)"></ion-input>
+    </ion-item>
+    <!-- End Country Input -->
+  </ion-list>
+</ion-content>

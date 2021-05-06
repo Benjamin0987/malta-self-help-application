@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { GalleryPage } from '../gallery/gallery.page';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController
+  ) { }
 
   ngOnInit() {
   }
 
+  async openGallery()
+    {
+      const modal = await this.modalCtrl.create({
+        component: GalleryPage
+      });
+
+      modal.present();
+    }
 }

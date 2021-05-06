@@ -54,6 +54,14 @@ const routes: Routes = [
     path: 'gallery',
     loadChildren: () => import('./gallery/gallery.module').then( m => m.GalleryPageModule)
   },
+  {
+    path: 'profilepage',
+    loadChildren: () => import('./profilepage/profilepage.module').then( m => m.ProfilepagePageModule)
+  },
+  {
+    path: 'album-selector',
+    loadChildren: () => import('./album-selector/album-selector.module').then( m => m.AlbumSelectorPageModule)
+  },
 ];
 @NgModule({
   imports: [
