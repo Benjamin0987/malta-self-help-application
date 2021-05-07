@@ -18,7 +18,7 @@
   <h5>The Best Island in Europe</h5>
   <hr>
   <ion-row class="icons">
-    <ion-icon name="heart"></ion-icon>
+    <ion-icon (click)="quit()" name="heart"></ion-icon>
     <a href="https://www.maltainfoguide.com/island-of-malta.html"><ion-icon name="globe"></ion-icon></a>
     <ion-icon name="share-social"></ion-icon>
   </ion-row>
@@ -30,9 +30,10 @@
     <p>Malta Island has so many opportunities and so much to offer. Malta retains spectacular backgrounds, with a surprising amount of cultural heritage still visible today. It is being well preserved till today in order to be enjoyed by all locals and visitors.</p>
     <p>It is the largest of all the Maltese's archipelago located in the centre of the Mediterranean Sea between Sicily and Africa. The other islands are Gozo and Comino much smaller in size with their own charm and characteristics.</p>
   </ion-text>
-  <h3>Nearby Locations You Can Visit</h3>
-    <ion-button fill="clear" routerLink="/tabs/rabatmaltapage">Rabat Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-    <ion-button fill="clear">Roman Villa <ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-    <ion-button fill="clear">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
 </div>
+<hr>
+<h3>Nearby Locations You Can Visit</h3>
+<ion-button fill="clear" routerLink="/tabs/gozoislandpage">Gozo Island<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+<ion-button fill="clear" routerLink="/tabs/vallettamaltapage">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+<ion-button fill="clear" routerLink="/tabs/mdinamaltapage">Mdina Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
 </ion-content>

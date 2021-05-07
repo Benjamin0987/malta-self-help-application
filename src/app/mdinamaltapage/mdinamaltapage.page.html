@@ -18,7 +18,7 @@
   <h5>L-Imdina Città Vecchia</h5>
   <hr>
   <ion-row class="icons">
-    <ion-icon name="heart"></ion-icon>
+    <ion-icon (click)="quit()" name="heart"></ion-icon>
     <a href="https://www.maltainfoguide.com/mdina-in-malta.html"><ion-icon name="globe"></ion-icon></a>
     <ion-icon name="share-social"></ion-icon>
   </ion-row>
@@ -31,9 +31,10 @@
     <p>It is an enchanting old capital that has kept its character with a tiny population of around 240 people.</p>
     <p>During the day it is a major tourist attraction. There is no other place like it on the island. At night it is quiet with a unique character also pleasant to visit lit by lanterns, quiet alleys, people walking the main road to the rear fortifications for the incredible view.</p>
   </ion-text>
-  <h3>Nearby Locations You Can Visit</h3>
-    <ion-button fill="clear" routerLink="/tabs/rabatmaltapage">Rabat Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-    <ion-button fill="clear">Roman Villa <ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-    <ion-button fill="clear">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
 </div>
+<hr>
+<h3>Nearby Locations You Can Visit</h3>
+<ion-button fill="clear" routerLink="/tabs/gozoislandpage">Gozo Island<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+<ion-button fill="clear" routerLink="/tabs/maltaislandpage">Malta Island<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+<ion-button fill="clear" routerLink="/tabs/vallettamaltapage">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
 </ion-content>

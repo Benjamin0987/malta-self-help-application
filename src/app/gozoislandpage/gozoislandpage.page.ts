@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-mdinamaltapage',
-  templateUrl: './mdinamaltapage.page.html',
-  styleUrls: ['./mdinamaltapage.page.scss'],
+  selector: 'app-gozoislandpage',
+  templateUrl: './gozoislandpage.page.html',
+  styleUrls: ['./gozoislandpage.page.scss'],
 })
-export class MdinamaltapagePage implements OnInit {
+export class GozoislandpagePage implements OnInit {
 
   constructor(
     private alertCtrl: AlertController,
