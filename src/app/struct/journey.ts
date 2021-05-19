@@ -1,5 +1,8 @@
+import { Photo } from "./gallery";
+
 export interface JourneyItem
 {
-    journeyTitle: string;
-    journeyDescription: string;
+    title: string;
+    description: string;
+    photos?: Photo[];
 }

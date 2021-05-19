@@ -5,7 +5,7 @@ import { MdinamaltapagePage } from './mdinamaltapage.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: MdinamaltapagePage
   }
 ];

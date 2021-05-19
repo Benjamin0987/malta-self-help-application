@@ -13,8 +13,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-button class="category" expand="full" color="medium" routerLink="/tabs/maltaislandpage">Malta Island</ion-button>
-  <ion-button class="category" expand="full" color="medium" routerLink="/tabs/gozoislandpage">Gozo Island</ion-button>
-  <ion-button class="category" expand="full" color="medium" routerLink="/tabs/vallettamaltapage">Valletta Malta</ion-button>
-  <ion-button class="category" expand="full" color="medium" routerLink="/tabs/mdinamaltapage">Mdina Malta</ion-button>
+  <ion-list lines="full">
+    <ion-item detail="true" detailIcon="chevron-forward" [routerLink]="['/tabs/mdinamaltapage', item.id]" *ngFor="let item of information">
+      <ion-label>{{ item.pageTitle }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

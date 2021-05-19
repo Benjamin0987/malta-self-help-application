@@ -7,7 +7,7 @@
     <ion-title>Journals</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button>Clear</ion-button>
+      <ion-button (click)="clear()">Clear</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -15,29 +15,36 @@
 
 <ion-content>
 
-  <div class="ion-padding ion-text-center">
+  <div class="ion-padding ion-text-center" *ngIf="journey.length == 0">
     <p>You don't have a recorded history.</p>
     <ion-button fill="clear" expand="full" routerLink="/tabs/journaldiary" routerDirection="root">Create A Journal</ion-button>
   </div>
-
-  <ion-list>
-    <ion-item-sliding>
+  <ion-list *ngIf="journey.length > 0">
+    <ion-button expand="full" [routerLink]="['/journaldiary', i]" *ngFor="let item of journey; let i = index">
+      <ion-item>
+        {{ item.title }}
+      </ion-item>
+    </ion-button>
+  </ion-list>
+<!--
+  <ion-list *ngIf="journey.length > 0">
+    <ion-item-sliding *ngFor="let item of journey; let i = index" (ionDrag)="onSlide($event, i, options)" #options>
       <ion-item-options side="start">
-        <ion-item-option color="danger">
+        <ion-item-option color="danger" (click)="delete(i)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
       <ion-item>
-        <h3>{{ journeyTitle }}</h3>
+        {{ item.title }}
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="primary">
+        <ion-item-option color="primary" [routerLink]="['/journaldiary', i]">
           <ion-icon slot="icon-only" name="eye"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-
     </ion-item-sliding>
   </ion-list>
+-->
 </ion-content>

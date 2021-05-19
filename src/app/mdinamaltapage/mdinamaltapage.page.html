@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/categories"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mdina Malta</ion-title>
+    <ion-title>{{ information.headerTitle }}</ion-title>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="bookmark" slot="icon-only"></ion-icon>
@@ -12,29 +12,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-img src="assets/mdina-malta.jpg"></ion-img>
-  <h2>Silent City Mdina Malta</h2>
-  <h5>L-Imdina Città Vecchia</h5>
+<ion-content *ngIf="information">
+  <ion-img src="{{ information.photo }}"></ion-img>
+  <h2>{{ information.pageTitle }}</h2>
+  <h5>{{ information.subTitle }}</h5>
   <hr>
   <ion-row class="icons">
     <ion-icon (click)="quit()" name="heart"></ion-icon>
-    <a href="https://www.maltainfoguide.com/mdina-in-malta.html"><ion-icon name="globe"></ion-icon></a>
+    <a href="{{ information.externalLink }}"><ion-icon name="globe"></ion-icon></a>
     <ion-icon name="share-social"></ion-icon>
   </ion-row>
 <hr>
 <div class="ion-padding">
   <ion-text>
-    <p>Mdina in Malta is an ancient, unique, fortified city of incredible historical value. Built on a hill overlooking the rest of the island from the north and east to west.</p>
-    <p>So beautiful and historic, the city filled with Medieval, Norman and baroque architecture. Several palaces, churches, cathedral, monasteries and high fortification walls that stretch all round visible from many parts of the island.</p>
-    <p>Throughout the ages it has been maintained.  It was shaken by Sicily’s earthquake of 1693 which left many buildings damaged.</p>
-    <p>It is an enchanting old capital that has kept its character with a tiny population of around 240 people.</p>
-    <p>During the day it is a major tourist attraction. There is no other place like it on the island. At night it is quiet with a unique character also pleasant to visit lit by lanterns, quiet alleys, people walking the main road to the rear fortifications for the incredible view.</p>
+    <p *ngFor="let p of information.text">{{ p }}</p>
   </ion-text>
 </div>
 <hr>
 <h3>Nearby Locations You Can Visit</h3>
-<ion-button fill="clear" routerLink="/tabs/gozoislandpage">Gozo Island<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-<ion-button fill="clear" routerLink="/tabs/maltaislandpage">Malta Island<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
-<ion-button fill="clear" routerLink="/tabs/vallettamaltapage">Valletta Malta<ion-icon class="linkarrow" name="arrow-forward"></ion-icon></ion-button>
+<ion-list lines="full">
+  <ion-item detail="true" detailIcon="chevron-forward" [routerLink]="['/tabs/mdinamaltapage', item.id]" *ngFor="let item of informationlink">
+    <ion-label>{{ item.pageTitle }}</ion-label>
+  </ion-item>
+</ion-list>
 </ion-content>

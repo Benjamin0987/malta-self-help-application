@@ -17,26 +17,28 @@
   <!-- Enter Title -->
   <ion-item>
     <ion-label position="floating">Enter Title...</ion-label>
-    <ion-input clearInput [(ngModel)]="journeyTitle" (ionChange)="onChange('journeyTitle', $event)"></ion-input>
+    <ion-input clearInput [(ngModel)]="journey.title" (ionChange)="onChange('journeyTitle', $event)"></ion-input>
   </ion-item>
 
   <!-- Enter Description -->
   <ion-item>
     <ion-label position="floating">Your Journey Description</ion-label>
-    <ion-input clearInput  placeholder="Start Writing here...." [(ngModel)]="journeyDescr" (ionChange)="onChange('journeyDescr', $event)"></ion-input>
+    <ion-input clearInput  placeholder="Start Writing here...." [(ngModel)]="journey.description" (ionChange)="onChange('journeyDescr', $event)"></ion-input>
   </ion-item>
   <!-- Enter Images -->
   <ion-row class="ion-padding">
+    <ion-avatar (click)="openGallery(i)" *ngFor="let photo of journey.photos; let i = index">
+      <img src="{{ photo || 'assets/image.png' }}" alt="">
+    </ion-avatar>
     <ion-avatar (click)="openGallery()">
-      <img src="{{ journeyImg1 || 'assets/image.png' }}" alt="">
-    </ion-avatar>
-    <ion-avatar (click)="openGallery2()">
-      <img src="{{ journeyImg2 || 'assets/image.png' }}" alt="">
-    </ion-avatar>
-    <ion-avatar (click)="openGallery3()">
-      <img src="{{ journeyImg3 || 'assets/image.png' }}" alt="">
+      <ion-icon name="add"></ion-icon>
     </ion-avatar>
   </ion-row>
 
-  <ion-button expand="full" (click)="quit()">Save Journal</ion-button>
+  <ion-button
+    (click)="quit()"
+    class="ion-no-margin"
+    expand="full"
+    [disabled]="!journey.title || !journey.description"
+    >Save Journal</ion-button>
 </ion-content>

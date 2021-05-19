@@ -32,7 +32,16 @@ const routes: Routes = [
   },
   {
     path: 'journaldiary',
-    loadChildren: () => import('./journaldiary/journaldiary.module').then( m => m.JournaldiaryPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./journaldiary/journaldiary.module').then( m => m.JournaldiaryPageModule)
+      },
+      {
+        path: ':id',
+        loadChildren: () => import('./journaldiary/journaldiary.module').then( m => m.JournaldiaryPageModule)
+      }
+    ]
   },
   {
     path: 'journals',

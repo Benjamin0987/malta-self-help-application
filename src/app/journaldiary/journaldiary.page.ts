@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ModalController, ViewWillLeave } from '@ionic/angular';
 import { GalleryPage } from '../gallery/gallery.page';
 import { AlbumService } from '../services/album.service';
 import { StorageService } from '../services/storage.service';
+import { JourneyItem } from '../struct/journey';
 
 @Component({
   selector: 'app-journaldiary',
@@ -13,11 +14,16 @@ import { StorageService } from '../services/storage.service';
 
 export class JournaldiaryPage implements OnInit {
 
-  public journeyImg1: string = null;
-  public journeyImg2: string = null;
-  public journeyImg3: string = null;
-  public journeyTitle: string = " ";
-  public journeyDescr: string = " ";
+  public journey: JourneyItem = { title: '', description: '', photos: [] };
+
+  public id: number;
+
+  // public journeyImg1: string = null;
+  // public journeyImg2: string = null;
+  // public journeyImg3: string = null;
+  // public journeyTitle: string = " ";
+  // public journeyDescr: string = " ";
+  
 
 
   constructor(
@@ -25,24 +31,32 @@ export class JournaldiaryPage implements OnInit {
     private albumService: AlbumService,
     private storageService: StorageService,
     private alertCtrl: AlertController,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   async ngOnInit() {
-    this.journeyImg1 = await this.storageService.get('profilePicture');
-    this.journeyImg2 = await this.storageService.get('profilePicture2');
-    this.journeyImg3 = await this.storageService.get('profilePicture3');
-    this.journeyTitle = await this.storageService.get('journeyTitle');
-    this.journeyDescr = await this.storageService.get('journeyDescr');
+    // this.journeyImg1 = await this.storageService.get('journeyImg1');
+    // this.journeyImg2 = await this.storageService.get('journeyImg2');
+    // this.journeyImg3 = await this.storageService.get('journeyImg3');
+    // this.journeyTitle = await this.storageService.get('journeyTitle');
+    // this.journeyDescr = await this.storageService.get('journeyDescr');
+    this.id = this.activatedRoute.snapshot.params.id;
+    if (this.id !== undefined)
+    {
+      const journeys = await this.storageService.get('journey');
+      this.journey = journeys[this.id];
+    }
+    
+    
   }
-
-
 
   takePhoto()
   {
     this.albumService.takePhoto();
   }
 
+  
   /**
    * Sets the data value for a specified key.
    * @param key The storage key.
@@ -53,7 +67,7 @@ export class JournaldiaryPage implements OnInit {
       this.storageService.set(key, e.detail.value);
     }
 
-    async openGallery()
+    async openGallery(index?: number)
     {
       const modal = await this.modalCtrl.create({
         component: GalleryPage
@@ -68,69 +82,32 @@ export class JournaldiaryPage implements OnInit {
         // this.avatarSrc = photo.filePath;
 
         // CHROME ONLY - we have to check our photo.
-        if (photo.base64Data) this.journeyImg1 = photo.base64Data;
-        else if (photo.webViewPath) this.journeyImg1 = photo.webViewPath;
-        else if (photo.filePath) this.journeyImg1 = photo.filePath;
-        else this.journeyImg1 = null;
-
-        this.storageService.set('profilePicture', this.journeyImg1);
+        if (photo.base64Data)
+        {
+          if (index != undefined)
+            this.journey.photos[index] = photo.base64Data;
+          else
+            this.journey.photos.push(photo.base64Data);
+        }
+        else if (photo.webViewPath) 
+        {
+          if (index != undefined)
+            this.journey.photos[index] = photo.webViewPath;
+          else
+            this.journey.photos.push(photo.webViewPath);
+        }
+        else if (photo.filePath) 
+        {
+          if (index != undefined)
+            this.journey.photos[index] = photo.filePath;
+          else
+            this.journey.photos.push(photo.filePath);
+        }
+        else this.journey.photos = null;
     });
 
     modal.present();
   }
-
-  async openGallery2()
-  {
-    const modal = await this.modalCtrl.create({
-      component: GalleryPage
-    });
-
-    modal.onWillDismiss().then(response => {
-      if (response.role == 'cancel') return;
-
-      const photo = response.data;
-
-      // For mobile - we can use the filePath
-      // this.avatarSrc = photo.filePath;
-
-      // CHROME ONLY - we have to check our photo.
-      if (photo.base64Data) this.journeyImg2 = photo.base64Data;
-      else if (photo.webViewPath) this.journeyImg2 = photo.webViewPath;
-      else if (photo.filePath) this.journeyImg2 = photo.filePath;
-      else this.journeyImg2 = null;
-
-
-      this.storageService.set('profilePicture2', this.journeyImg2);
-  });
-
-  modal.present();
-}
-
-async openGallery3()
-{
-  const modal = await this.modalCtrl.create({
-    component: GalleryPage
-  });
-
-  modal.onWillDismiss().then(response => {
-    if (response.role == 'cancel') return;
-
-    const photo = response.data;
-
-    // For mobile - we can use the filePath
-    // this.avatarSrc = photo.filePath;
-
-    // CHROME ONLY - we have to check our photo.
-    if (photo.base64Data) this.journeyImg3 = photo.base64Data;
-    else if (photo.webViewPath) this.journeyImg3 = photo.webViewPath;
-    else if (photo.filePath) this.journeyImg3 = photo.filePath;
-    else this.journeyImg3 = null;
-
-    this.storageService.set('profilePicture3', this.journeyImg3);
-});
-
-  modal.present();
-}
 
 async quit()
   {
@@ -146,8 +123,10 @@ async quit()
         },
         {
           text: "Yes",
-          handler: () => {
+          handler: async () => {
+            await this.save();
             this.router.navigateByUrl('tabs/journals', { replaceUrl: true });
+            
           }
         }
       ]
@@ -156,5 +135,30 @@ async quit()
     alert.present();
   }
 
+  async savephotos()
+  {
+    const photos = await this.storageService.get('photos') || [];
+    photos.unshift(imageFile);
+    await this.storageService.set('photos', photos);
+  }
+  async save()
+  {
+    const journey: JourneyItem[] = await this.storageService.get('journey') || [];
+    if (this.id === undefined)
+    {
+      journey.push(this.journey);
+    }
+    else
+    {
+      journey[this.id] = this.journey;
+    }
+    this.storageService.set('journey', journey);
+  }
+
 }
+
+function imageFile(imageFile: any) {
+  throw new Error('Function not implemented.');
+}
+
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { InfoService } from '../services/info.service';
+import { Information } from '../struct/information';
 
 @Component({
   selector: 'app-mdinamaltapage',
@@ -9,12 +11,21 @@ import { AlertController } from '@ionic/angular';
 })
 export class MdinamaltapagePage implements OnInit {
 
+  information: Information =  { id: 'mdina', headerTitle: 'Mdina Malta',  photo: 'photo', pageTitle: 'Mdina', subTitle: 'Please work', text: [], externalLink: "Link to External Page" };
+  informationlink: Information[] = [];
   constructor(
     private alertCtrl: AlertController,
-    private router: Router
+    private route: ActivatedRoute,
+    private router: Router,
+
+    private infoService: InfoService
   ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+    const id = this.route.snapshot.params.id;
+    this.information = this.infoService.get(id) as Information;
+    this.informationlink = this.infoService.get() as Information[];
   }
 
   async quit()
