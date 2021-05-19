@@ -13,11 +13,16 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding ion-text-center" *ngIf="information.length == 0">
+  <div class="ion-padding ion-text-center">
     <p>You don't have any saved items.</p>
-    <ion-button fill="clear" expand="full" routerLink="/tabs/journaldiary" routerDirection="root">Create A Journal</ion-button>
   </div>
-  <!--<ion-list *ngIf="information.length > 0">
+  <!--
+  <ion-list lines="full" *ngIf="information.length > 0">
+    <ion-item detail="true" detailIcon="chevron-forward" [routerLink]="['/tabs/mdinamaltapage', item.id]" *ngFor="let item of information">
+      <ion-label>{{ item.pageTitle }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="information.length > 0">
     <ion-button expand="full" [routerLink]="['/journaldiary', i]" *ngFor="let item of information; let i = index">
       <ion-item>
         
