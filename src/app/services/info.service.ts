@@ -9,9 +9,9 @@ import { StorageService } from './storage.service';
 export class InfoService
 {
   information: Information[] = [];
-  
+  private weatherURL = 'http://api.weatherapi.com/v1/current.json?key=71e8bcdd0b124c12a3595653212505&q=Malta&aqi=yes';
   constructor(
-    private storageService: StorageService
+    private storageService: StorageService,
   ) { }
 
   async init()
@@ -24,4 +24,5 @@ export class InfoService
     if (id === undefined) return this.information;
     return this.information.find(info => info.id == id);
   }
+    
 }

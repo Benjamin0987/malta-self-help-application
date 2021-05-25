@@ -52,10 +52,6 @@ const routes: Routes = [
     loadChildren: () => import('./profilepage/profilepage.module').then( m => m.ProfilepagePageModule)
   },
   {
-    path: 'maltaislandpage',
-    loadChildren: () => import('./maltaislandpage/maltaislandpage.module').then( m => m.MaltaislandpagePageModule)
-  },
-  {
     path: 'saved',
     loadChildren: () => import('./saved/saved.module').then( m => m.SavedPageModule)
   },
@@ -70,14 +66,6 @@ const routes: Routes = [
   {
     path: 'album-selector',
     loadChildren: () => import('./album-selector/album-selector.module').then( m => m.AlbumSelectorPageModule)
-  },
-  {
-    path: 'gozoislandpage',
-    loadChildren: () => import('./gozoislandpage/gozoislandpage.module').then( m => m.GozoislandpagePageModule)
-  },
-  {
-    path: 'vallettamaltapage',
-    loadChildren: () => import('./vallettamaltapage/vallettamaltapage.module').then( m => m.VallettamaltapagePageModule)
   },
 ];
 @NgModule({

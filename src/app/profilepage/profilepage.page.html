@@ -6,7 +6,7 @@
 
     <ion-title>Profile</ion-title>
 
-    <ion-buttons slot="end" routerLink="/gallery">
+    <ion-buttons slot="end" (click)="openGallery()">
       <ion-button color="dark"><ion-icon class="headericons" name="albums-outline"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -51,6 +51,17 @@
     </ion-item>
     <!-- End Surname Input -->
 
+    <!-- Age Input -->
+    <ion-item>
+      <ion-label position="floating">
+        Age
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-input clearInput [(ngModel)]="age" (ionChange)="onChange('age', $event)"></ion-input>
+    </ion-item>
+    <!-- End Email Input -->
+
     <!-- Email Input -->
     <ion-item>
       <ion-label position="floating">
@@ -61,6 +72,7 @@
       <ion-input clearInput [(ngModel)]="email" (ionChange)="onChange('email', $event)"></ion-input>
     </ion-item>
     <!-- End Email Input -->
+
 
     <!-- Country Input -->
     <ion-item>

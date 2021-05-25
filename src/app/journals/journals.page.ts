@@ -48,25 +48,4 @@ export class JournalsPage
     
   }
 
-  async clear()
-  {
-    const alert = await this.alertCtrl.create({
-      header: "Are you sure?",
-      message: "Deleting your journals is a permanent action and cannot be undone.",
-      buttons: [
-        {
-          text: "No",
-          role: 'cancel'
-        },
-        {
-          text: "Yes",
-          handler: async () => {
-            await this.storageService.remove('journey');
-            this.journey = await this.storageService.get('journey') || [];
-          }
-        }
-      ]
-    });
-
-}
 }

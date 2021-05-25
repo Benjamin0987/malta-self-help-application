@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ModalController, ViewWillLeave } from '@ionic/angular';
 import { GalleryPage } from '../gallery/gallery.page';
@@ -16,15 +16,7 @@ export class JournaldiaryPage implements OnInit {
 
   public journey: JourneyItem = { title: '', description: '', photos: [] };
 
-  public id: number;
-
-  // public journeyImg1: string = null;
-  // public journeyImg2: string = null;
-  // public journeyImg3: string = null;
-  // public journeyTitle: string = " ";
-  // public journeyDescr: string = " ";
-  
-
+  @Input() id: number;
 
   constructor(
     private modalCtrl: ModalController,
@@ -36,19 +28,12 @@ export class JournaldiaryPage implements OnInit {
   ) { }
 
   async ngOnInit() {
-    // this.journeyImg1 = await this.storageService.get('journeyImg1');
-    // this.journeyImg2 = await this.storageService.get('journeyImg2');
-    // this.journeyImg3 = await this.storageService.get('journeyImg3');
-    // this.journeyTitle = await this.storageService.get('journeyTitle');
-    // this.journeyDescr = await this.storageService.get('journeyDescr');
-    this.id = this.activatedRoute.snapshot.params.id;
+    this.id = this.activatedRoute.snapshot.params.id; // if modal, don't use this
     if (this.id !== undefined)
     {
       const journeys = await this.storageService.get('journey');
       this.journey = journeys[this.id];
     }
-    
-    
   }
 
   takePhoto()
@@ -56,7 +41,6 @@ export class JournaldiaryPage implements OnInit {
     this.albumService.takePhoto();
   }
 
-  
   /**
    * Sets the data value for a specified key.
    * @param key The storage key.

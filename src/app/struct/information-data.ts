@@ -15,7 +15,7 @@ export const INFORMATIONS: Information[] = [
                 "Throughout the ages it has been maintained.  It was shaken by Sicily’s earthquake of 1693 which left many buildings damaged.",
                 "It is an enchanting old capital that has kept its character with a tiny population of around 240 people.",
                 "During the day it is a major tourist attraction. There is no other place like it on the island. At night it is quiet with a unique character also pleasant to visit lit by lanterns, quiet alleys, people walking the main road to the rear fortifications for the incredible view."
-            ],
+            ]
     },
     {
         id: 'valletta',
@@ -59,6 +59,47 @@ export const INFORMATIONS: Information[] = [
                 "Gozo island, also called 'Ghawdex' in Maltese, is the second largest island of the Maltese archipelago. Despite its close proximity and obvious links with Malta, the island bears many dissimilarities, making it rather unique.",
                 "Gozo is fondly referred to as ‘the island where time stood still’ as one can still witness many habits and traditions from centuries ago which are still practiced by the locals to this very day.",
                 "The island is less densely populated, life is simpler, it is greener and less industrialized than Malta and has infrastructure. All this has helped Gozo to retain its natural beauty. It is worth a visit for at least a day during your holiday in Malta."
+            ],
+    },
+    {
+        id: 'bluelagoon',
+        headerTitle: 'Blue Lagoon Comino',
+        photo: 'assets/blue-lagoon-comino.jpg',
+        pageTitle: "Blue Lagoon Comino",
+        subTitle: "A Grand Getaway During Your Holiday",
+        externalLink: "https://www.maltainfoguide.com/blue-lagoon-malta.html",
+        text: 
+            [
+                "Blue Lagoon Malta is an attractive location with wonderful turquoise blue sea located at Comino, a grand getaway during your holiday in Malta. Families with young children can swim and wade safely as the sea is shallow.",
+                "The treasure of the crystal clear waters of the Blue Lagoon attracts many tourists especially during the summer months. For seven months of the year there are tours organized almost every day. One cannot miss an opportunity of a visit while in Malta."
+            ],
+    },
+    {
+        id: 'marsaxlokk',
+        headerTitle: 'Marsaxlokk',
+        photo: 'assets/marsaxlokk-malta.jpg',
+        pageTitle: "Marsaxlokk Malta",
+        subTitle: "A Tiny Fishing Village",
+        externalLink: "https://www.maltainfoguide.com/marsaxlokk-malta.html",
+        text: 
+            [
+                "Marsaxlokk Malta is a small fishing village with a population of around 4,000 located on the south-eastern coast of Malta located at the shoreline of the second largest port in Malta.",
+                "You will find this fishing village on all Malta guide books. Surrounded by green vegetation, this port is very sheltered and has deep waters. For this reason it has served many purposes over the centuries.",
+                "The nearby village of Birzebbugia also forms part of this port however it offers a very different character. At present this important fishing village has the largest population of active fishermen with many traditional fishing boats of all sizes anchored in the port.",
+                "The Malta fishing village is a very quiet location compared to others, with few cars passing through. But at the same time it has become a very touristic location with many fish restaurants and cafes lined along the promenade."
+            ],
+    },
+    {
+        id: 'whereismalta',
+        headerTitle: 'Where Is Malta',
+        photo: 'assets/where-is-malta.jpg',
+        pageTitle: "Where Is Malta Located?",
+        subTitle: "A Small Country In The Middle Of The Mediterranean Sea",
+        externalLink: "https://www.maltainfoguide.com/where-is-malta.html",
+        text: 
+            [
+                "Where is Malta located? A question asked by many as it is a known fact that Malta is still a relatively well kept secret!",
+                "Our island is in the center of the Mediterranean Sea and is the southernmost European country. We are halfway between Gibraltar and Alexandria and between Sicily and North Africa. The islands are closer to Europe than Africa.",
             ],
     },
 

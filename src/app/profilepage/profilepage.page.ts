@@ -16,6 +16,9 @@ export class ProfilepagePage implements OnInit
   // The user's surname.
   public surname: string = "";
 
+  // The user's age
+  public age: string ="";
+
   // The user's email
   public email: string ="";
 
@@ -34,6 +37,7 @@ export class ProfilepagePage implements OnInit
   {
     this.name = await this.storageService.get('name');
     this.surname = await this.storageService.get('surname');
+    this.age = await this.storageService.get('age'); 
     this.email = await this.storageService.get('email'); 
     this.country = await this.storageService.get('country');
     this.avatarSrc = await this.storageService.get('profilePic');
@@ -75,5 +79,14 @@ export class ProfilepagePage implements OnInit
 
   modal.present();
   }
+
+  async openGalleryheader()
+    {
+      const modal = await this.modalCtrl.create({
+        component: GalleryPage
+      });
+
+      modal.present();
+    }
 
 }

@@ -40,20 +40,8 @@ const routes: Routes = [
         loadChildren: () => import('../journaldiary/journaldiary.module').then(m => m.JournaldiaryPageModule)
       },
       {
-        path: 'maltaislandpage',
-        loadChildren: () => import('../maltaislandpage/maltaislandpage.module').then(m => m.MaltaislandpagePageModule)
-      },
-      {
         path: 'saved',
         loadChildren: () => import('../saved/saved.module').then(m => m.SavedPageModule)
-      },
-      {
-        path: 'gozoislandpage',
-        loadChildren: () => import('../gozoislandpage/gozoislandpage.module').then(m => m.GozoislandpagePageModule)
-      },
-      {
-        path: 'vallettamaltapage',
-        loadChildren: () => import('../vallettamaltapage/vallettamaltapage.module').then(m => m.VallettamaltapagePageModule)
       },
       {
         path: '',

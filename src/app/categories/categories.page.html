@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Create Journal</ion-title>
+    <ion-title>Category</ion-title>
 
     <ion-buttons slot="end" routerLink="/gallery">
       <ion-button color="dark"><ion-icon class="headericons" name="albums-outline"></ion-icon></ion-button>
@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="full">
-    <ion-item detail="true" detailIcon="chevron-forward" [routerLink]="['/tabs/mdinamaltapage', item.id]" *ngFor="let item of information">
+  <ion-list lines="full" >
+    <ion-item color="medium" detail="true" detailIcon="chevron-forward" [routerLink]="['/tabs/mdinamaltapage', item.id]" *ngFor="let item of information">
       <ion-label>{{ item.pageTitle }}</ion-label>
     </ion-item>
   </ion-list>
