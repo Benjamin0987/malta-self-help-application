@@ -14,11 +14,10 @@
 <ion-content *ngIf="information">
   <ion-img src="{{ information.photo }}"></ion-img>
   <h2>{{ information.pageTitle }}</h2>
-  <a href="http://api.weatherapi.com/v1/current.json?key=71e8bcdd0b124c12a3595653212505&q=Malta&aqi=yes"><ion-icon class="icons" name="globe"></ion-icon></a>
   <h5>{{ information.subTitle }}</h5>
   <hr>
   <ion-row>
-    <ion-icon class="icons" name="heart"></ion-icon>
+    <ion-icon class="icons" [name]="isSaved ? 'heart' : 'heart-outline'" (click)="save(information.id)"></ion-icon>
     <a href="{{ information.externalLink }}"><ion-icon class="icons" name="globe"></ion-icon></a>
     <ion-icon class="icons" name="share-social"></ion-icon>
   </ion-row>

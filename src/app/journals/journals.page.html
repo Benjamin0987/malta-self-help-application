@@ -22,7 +22,7 @@
           <ion-button color="medium" class="nameButton" [routerLink]="['/journaldiary', i]" >
             {{ item.title }}
           </ion-button>
-          <ion-button color="danger" (click)="delete(i)"><ion-icon name="trash"></ion-icon></ion-button>
+          <ion-button color="danger" (click)="deleteButton(i)"><ion-icon name="trash"></ion-icon></ion-button>
           </ion-row>
         </ion-grid>
 

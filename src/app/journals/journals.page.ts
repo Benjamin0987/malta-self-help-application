@@ -48,4 +48,24 @@ export class JournalsPage
     
   }
 
+  async deleteButton(index: number)
+  {
+    const alert = await this.alertCtrl.create({
+      header: "Delete Journal",
+      message: "Are you sure you want to delete this journal?",
+      buttons: [
+        {
+          text: "No",
+          role: 'cancel'
+        },
+        {
+          text: "Yes",
+          handler: () => { this.delete(index) }
+        }
+      ]
+    });
+    
+    alert.present();
+  }
+
 }
