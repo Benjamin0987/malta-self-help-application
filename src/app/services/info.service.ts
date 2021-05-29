@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Data } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Information } from '../struct/information';
 import { INFORMATIONS } from '../struct/information-data';
 import { StorageService } from './storage.service';
@@ -11,9 +13,9 @@ export class InfoService
 {
   information: Information[] = [];
   saved: string[] = [];
-  temp: number = 0;
+  //temp: number = 0;
 
-  private weatherURL = 'http://api.weatherapi.com/v1/current.json?key=71e8bcdd0b124c12a3595653212505&q=Malta&aqi=yes';
+  //private weatherURL = 'http://api.weatherapi.com/v1/current.json?key=71e8bcdd0b124c12a3595653212505&q=Malta&aqi=yes';
 
   constructor(
     private storageService: StorageService,
@@ -25,11 +27,11 @@ export class InfoService
     this.information = await this.storageService.get('information') || INFORMATIONS;
     this.saved = await this.storageService.get('saved') || [];
 
-    this.http.get(this.weatherURL).subscribe((data: any) => {
-      this.temp = data.current.temp_c;
-      console.log();
+  //  this.http.get(this.weatherURL).subscribe((data: any) => {
+   //   this.temp = data.current.temp_c;
+   //   console.log(this.temp);
       
-    });
+   // });
   }
 
   get(id?: string)

@@ -3,7 +3,7 @@ import { Information } from "./information";
 export const INFORMATIONS: Information[] = [
     {
         id: 'mdina',
-        headerTitle: 'Mdina Malta',
+        headerTitle: 'Mdina Malta ',
         photo: 'assets/mdina-malta.jpg',
         pageTitle: "Silent City Mdina Malta",
         subTitle: "L-Imdina Città Vecchia",
@@ -19,7 +19,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'valletta',
-        headerTitle: 'Valletta Malta',
+        headerTitle: 'Valletta Malta ',
         photo: 'assets/valletta-malta.jpg',
         pageTitle: "La Valetta Malta",
         subTitle: "A City Over 450 Years Old",
@@ -34,7 +34,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'malta',
-        headerTitle: 'Malta Island',
+        headerTitle: 'Malta Island ',
         photo: 'assets/malta-island.jpg',
         pageTitle: "Island Of Malta",
         subTitle: "The Best Island in Europe",
@@ -49,7 +49,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'gozo',
-        headerTitle: 'Gozo Island',
+        headerTitle: 'Gozo Island ',
         photo: 'assets/gozo-island.jpg',
         pageTitle: "The Island Of Gozo",
         subTitle: "The Island Full Of Peace And Quiet",
@@ -63,7 +63,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'bluelagoon',
-        headerTitle: 'Blue Lagoon Comino',
+        headerTitle: 'Blue Lagoon ',
         photo: 'assets/blue-lagoon-comino.jpg',
         pageTitle: "Blue Lagoon Comino",
         subTitle: "A Grand Getaway During Your Holiday",
@@ -76,7 +76,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'marsaxlokk',
-        headerTitle: 'Marsaxlokk',
+        headerTitle: 'Marsaxlokk ',
         photo: 'assets/marsaxlokk-malta.jpg',
         pageTitle: "Marsaxlokk Malta",
         subTitle: "A Tiny Fishing Village",
@@ -91,7 +91,7 @@ export const INFORMATIONS: Information[] = [
     },
     {
         id: 'whereismalta',
-        headerTitle: 'Where Is Malta',
+        headerTitle: 'Where Is Malta ',
         photo: 'assets/where-is-malta.jpg',
         pageTitle: "Where Is Malta Located?",
         subTitle: "A Small Country In The Middle Of The Mediterranean Sea",

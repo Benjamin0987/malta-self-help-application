@@ -4,9 +4,8 @@
       <ion-back-button defaultHref="/tabs/categories"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ information.headerTitle }}</ion-title>
-    
     <ion-buttons slot="end" (click)="openGallery()"> 
-      <ion-button color="dark"><ion-icon  class="headericons" name="camera"></ion-icon></ion-button>
+      <ion-button color="dark">{{WeatherData.temp_celcius}}°<ion-icon  class="headericons" name="camera"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
