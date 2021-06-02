@@ -28,7 +28,7 @@ export class JournaldiaryPage implements OnInit {
   ) { }
 
   async ngOnInit() {
-    /*if (this.modalCtrl.getTop() == null)
+    if (this.modalCtrl.getTop() == null)
     {
       this.id = this.activatedRoute.snapshot.params.id; // if modal, don't use this
     }
@@ -37,13 +37,7 @@ export class JournaldiaryPage implements OnInit {
       const journeys = await this.storageService.get('journey');
       this.journey = journeys[this.id];
     }
-    */
-    this.id = this.activatedRoute.snapshot.params.id; // if modal, don't use this
-    if (this.id !== undefined)
-    {
-      const journeys = await this.storageService.get('journey');
-      this.journey = journeys[this.id];
-    }
+    
   }
 
   back()
@@ -117,8 +111,6 @@ export class JournaldiaryPage implements OnInit {
 
 async quit()
   {
-    // This code waits (await) for the alert to be
-    // created before moving on.
     const alert = await this.alertCtrl.create({
       header: "Save Progress",
       message: "Would you like to save your Journey?",
@@ -131,8 +123,7 @@ async quit()
           text: "Yes",
           handler: async () => {
             await this.save();
-            this.router.navigateByUrl('tabs/journals', { replaceUrl: true });
-            //this.back();
+            this.back();
           }
         }
       ]
