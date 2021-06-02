@@ -40,7 +40,7 @@ export class MdinamaltapagePage implements OnInit {
       isDay: true
     };
     this.getWeatherData();
-    console.log(this.WeatherData);
+    //console.log(this.WeatherData);
   }
 
   async openGallery()
@@ -59,7 +59,7 @@ export class MdinamaltapagePage implements OnInit {
 
   getWeatherData()
   {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=Malta&appid=c4a510462e45f650fe4c02176c3a47a9')
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=Valletta&appid=c4a510462e45f650fe4c02176c3a47a9')
     .then(response=>response.json())
     .then(data=>{this.setWeatherData(data);})
     //let data = JSON.parse('{"coord":{"lon":-107.8743,"lat":48.3597},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":277.15,"feels_like":274.8,"temp_min":277.15,"temp_max":277.15,"pressure":1017,"humidity":81},"visibility":10000,"wind":{"speed":2.57,"deg":200},"clouds":{"all":1},"dt":1622285255,"sys":{"type":1,"id":4824,"country":"US","sunrise":1622287005,"sunset":1622343691},"timezone":-21600,"id":5664486,"name":"Malta","cod":200}')
@@ -69,7 +69,7 @@ export class MdinamaltapagePage implements OnInit {
   setWeatherData(data)
   {
     this.WeatherData = data;
-    this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 251.15).toFixed(0);
+    this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
   }
 
   

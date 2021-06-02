@@ -5,10 +5,20 @@
     </ion-buttons>
     <ion-title>{{ information.headerTitle }}</ion-title>
     <ion-buttons slot="end" (click)="openGallery()"> 
-      <ion-button color="dark">{{WeatherData.temp_celcius}}°<ion-icon  class="headericons" name="camera"></ion-icon></ion-button>
+      <ion-button color="dark"><ion-icon  class="headericons" name="camera"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
+  <ion-fab vertical="center" horizontal="center">
+    <ion-fab-button class="fabButton">
+      {{WeatherData.temp_celcius}}°
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button href="https://openweathermap.org/city/2562305"><ion-icon name="sunny-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-header>
+
+
 
 <ion-content *ngIf="information">
   <ion-img src="{{ information.photo }}"></ion-img>

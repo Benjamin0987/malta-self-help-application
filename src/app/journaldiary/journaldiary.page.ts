@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, ModalController, ViewWillLeave } from '@ionic/angular';
+import { AlertController, ModalController, NavController, ViewWillLeave } from '@ionic/angular';
 import { GalleryPage } from '../gallery/gallery.page';
 import { AlbumService } from '../services/album.service';
 import { StorageService } from '../services/storage.service';
@@ -15,7 +15,6 @@ import { JourneyItem } from '../struct/journey';
 export class JournaldiaryPage implements OnInit {
 
   public journey: JourneyItem = { title: '', description: '', photos: [] };
-
   @Input() id: number;
 
   constructor(
@@ -24,15 +23,38 @@ export class JournaldiaryPage implements OnInit {
     private storageService: StorageService,
     private alertCtrl: AlertController,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private navCtrl: NavController
   ) { }
 
   async ngOnInit() {
+    /*if (this.modalCtrl.getTop() == null)
+    {
+      this.id = this.activatedRoute.snapshot.params.id; // if modal, don't use this
+    }
+    if (this.id !== undefined)
+    {
+      const journeys = await this.storageService.get('journey');
+      this.journey = journeys[this.id];
+    }
+    */
     this.id = this.activatedRoute.snapshot.params.id; // if modal, don't use this
     if (this.id !== undefined)
     {
       const journeys = await this.storageService.get('journey');
       this.journey = journeys[this.id];
+    }
+  }
+
+  back()
+  {
+    if (this.modalCtrl.getTop())
+    {
+      this.modalCtrl.dismiss();
+    }
+    else
+    {
+      this.navCtrl.back();
     }
   }
 
@@ -110,7 +132,7 @@ async quit()
           handler: async () => {
             await this.save();
             this.router.navigateByUrl('tabs/journals', { replaceUrl: true });
-            
+            //this.back();
           }
         }
       ]
@@ -139,10 +161,14 @@ async quit()
     this.storageService.set('journey', journey);
   }
 
+  
+
 }
 
 function imageFile(imageFile: any) {
   throw new Error('Function not implemented.');
 }
+
+
 
 

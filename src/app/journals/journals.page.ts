@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { JournaldiaryPage } from '../journaldiary/journaldiary.page';
 import { StorageService } from '../services/storage.service';
 import { JourneyItem } from '../struct/journey';
 
@@ -18,6 +19,7 @@ export class JournalsPage
   constructor(
     private storageService: StorageService,
     private alertCtrl: AlertController,
+    private modalCtrl: ModalController,
     private route: ActivatedRoute
     
   ) { }
@@ -34,6 +36,20 @@ export class JournalsPage
 
     console.log('reloading');
     
+  }
+
+  async openJournal(id?: number)
+  {
+    const modal = await this.modalCtrl.create({
+      component: JournaldiaryPage,
+      componentProps: { id: id }
+    });
+
+    modal.onWillDismiss().then(async (value) => {
+      this.journey = await this.storageService.get('journey') || [];
+    });
+
+    modal.present();
   }
 
   async delete(index: number)

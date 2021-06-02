@@ -24,4 +24,5 @@ export class HomepagePage implements OnInit {
 
       modal.present();
     }
+
 }

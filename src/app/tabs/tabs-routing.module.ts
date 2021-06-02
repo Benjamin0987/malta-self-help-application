@@ -28,10 +28,6 @@ const routes: Routes = [
         loadChildren: () => import('../profilepage/profilepage.module').then(m => m.ProfilepagePageModule)
       },
       {
-        path: 'createaccount',
-        loadChildren: () => import('../createaccount/createaccount.module').then(m => m.CreateaccountPageModule)
-      },
-      {
         path: 'mdinamaltapage',
         loadChildren: () => import('../mdinamaltapage/mdinamaltapage.module').then(m => m.MdinamaltapagePageModule)
       },

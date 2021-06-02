@@ -13,13 +13,14 @@
 <ion-content>
 
   <div class="ion-padding ion-text-center" *ngIf="journey.length == 0">
-    <p>You don't have a recorded history.</p>
+    <p>You don't have a recorded journals.</p>
     <ion-button fill="clear" expand="full" routerLink="/tabs/journaldiary" routerDirection="root">Create A Journal</ion-button>
   </div>
   <ion-list *ngIf="journey.length > 0">
     <ion-grid>
         <ion-row *ngFor="let item of journey; let i = index">
           <ion-button color="medium" class="nameButton" [routerLink]="['/journaldiary', i]" >
+          <!--<ion-button color="medium" class="nameButton" (click)="openJournal(i)" >-->
             {{ item.title }}
           </ion-button>
           <ion-button color="danger" (click)="deleteButton(i)"><ion-icon name="trash"></ion-icon></ion-button>
